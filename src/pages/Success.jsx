@@ -1,34 +1,35 @@
-import React, { useEffect, useState } from 'react'
-import { PropagateLoader } from 'react-spinners'
-
+import React, { useEffect, useState } from "react";
+import { PropagateLoader } from "react-spinners";
 
 function Success() {
-
-
-  const [loading, setLoading] = useState(true)
+  // State to manage loading animation
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-     setTimeout(() => {
-     setLoading(false)
-     }, 3000);
+    // Simulating order processing delay
+    setTimeout(() => {
+      setLoading(false);
+    }, 3000);
   }, []);
-  
-
 
   return (
-    <div className='flex flex-col items-center justify-center h-screen'>
-     {
-      loading ? <PropagateLoader color="rgba(69, 42, 69, 1)" />: <div>
-      
-      <h2 className='text-3xl font-semibold mb-4 text-center'>Order Successfully!</h2>
-      <p>Your order has been successfully placed</p>
-      </div>
-     }
-     
-     
-      
+    <div className="flex flex-col items-center justify-center h-screen">
+      {/* Show loader while processing */}
+      {loading ? (
+        <PropagateLoader color="rgba(69, 42, 69, 1)" />
+      ) : (
+        // Success message after loading completes
+        <div className="text-center">
+          <h2 className="text-3xl font-semibold mb-4">
+            Order Successfully Placed!
+          </h2>
+          <p className="text-lg text-gray-600">
+            Thank you for your purchase. Your order has been confirmed.
+          </p>
+        </div>
+      )}
     </div>
-  )
+  );
 }
 
-export default Success
+export default Success;

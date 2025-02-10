@@ -1,17 +1,19 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-
-const  Categoryslice=createSlice({
-    name:"category",
-    initialState:{
-        category:"All",
+// Creating a Redux slice for managing the selected category
+const CategorySlice = createSlice({
+  name: "category",
+  initialState: {
+    category: "All", // Default category is "All"
+  },
+  reducers: {
+    // Action to update the selected category
+    setCategory: (state, action) => {
+      state.category = action.payload;
     },
-    reducers:{
-        setCategory:(state,action)=>{
-            state.category=action.payload;
-        },
-    },
+  },
 });
 
-export const {setCategory}=Categoryslice.actions;
-export default Categoryslice.reducer;
+// Exporting actions and reducer
+export const { setCategory } = CategorySlice.actions;
+export default CategorySlice.reducer;
